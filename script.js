@@ -55,6 +55,7 @@ createGrids();
 let slider = document.querySelector('#myRange');
 let sliderText = document.querySelector(".slider-container p");
 let hoverSwitch = document.querySelector("#hoverCheckbox");
+let clearBtn = document.querySelector(".clearButton");
 
 hoverSwitch.addEventListener("change", function(){
     hoverModeChecked = hoverModeChecked ? false : true;
@@ -70,3 +71,7 @@ slider.oninput = function() {
     setTimeout(function() { 
     }, 1000);
 }
+
+clearBtn.addEventListener('click', () => {
+    createGrids();
+});

@@ -1,3 +1,10 @@
+body, button {
+    font-family: "Helvetica", monospace;
+    font-size: 25px;
+    color:  #0e2638;
+    background-color: #83a1b9;
+}
+
 p {
     margin: 0px;
 }
@@ -36,7 +43,7 @@ p {
 }
 
 .slider {
-    width: 475px;
+    width: 390px;
     background: #d3d3d3; 
     outline: none;
     opacity: 0.8;
@@ -48,15 +55,21 @@ p {
 .switch-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 335px;
     margin-top: 8px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 20px;
+    width: 75px;
+    height: 35px;
 }
   
 .switch input {
@@ -72,7 +85,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #d8d8d8;;
     border-radius: 34px;
     -webkit-transition: .4s;
     transition: .4s;
@@ -81,10 +94,10 @@ p {
 .switch-slider:before {
     position: absolute;
     content: "";
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    bottom: 3px;
+    height: 25px;
+    width: 25px;
+    left: 5px;
+    bottom: 5px;
     background-color: white;
     border-radius: 50%;
     -webkit-transition: .4s;
@@ -96,5 +109,18 @@ input:checked + .switch-slider {
 }
 
 input:checked + .switch-slider:before {
-    transform: translateX(30px);
+    transform: translateX(40px);
   }
+
+.clearButton {
+    background-color: #2196f3;
+    border: none;
+    border-radius: 34px;
+    color: white;
+    width: 75px;
+    height: 35px;
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
