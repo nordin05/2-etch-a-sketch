@@ -1,6 +1,18 @@
 .cell {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     margin: 0;
-    background-color: rgb(161, 103, 103);
+    border: 1px solid rgb(175, 175, 175);
+    background-color: rgb(228, 228, 228); 
+    transition: all 0.4s ease;;
+}
+
+.cell:hover {
+    scale: 1.1;
+    background-color: rgb(175, 175, 175);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }
