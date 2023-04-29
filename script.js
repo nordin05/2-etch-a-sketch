@@ -28,17 +28,20 @@ function createGrids(){
     updateAllCells()
 }
 
+function paintCell(Cell){
+    console.log("PRESSED");
+    this.style.backgroundColor = 'rgb(175, 175, 175)';
+}
+
 function drawOnCell(mode, Cell){
     if (hoverModeChecked == true){
-        Cell.addEventListener('mouseover', () => {
-            Cell.style.backgroundColor = 'rgb(175, 175, 175)';
-        });
+        Cell.removeEventListener('mousedown', paintCell);
+        Cell.addEventListener('mouseover', paintCell);
     }
 
     else if (hoverModeChecked == false){
-        Cell.addEventListener('mousedown', () => {
-            Cell.style.backgroundColor = 'rgb(175, 175, 175)';
-        });
+        Cell.removeEventListener('mouseover', paintCell);
+        Cell.addEventListener('mousedown', paintCell);
     }
 }
 
