@@ -16,7 +16,6 @@ function createGrids(){
         grid.appendChild(row);
 
         rowW = document.querySelector('#row' + (i+1));
-        console.log(rowW);
         for(j = 0; j < gridRows; j++){
             cell = document.createElement("div");
             cell.classList.add('cell', (j+1));
@@ -28,7 +27,7 @@ function createGrids(){
     }
 
     Cells = document.querySelectorAll(".cell");
-    Cells.forEach((Cell) => { drawOnCell('click', Cell) });
+    Cells.forEach((Cell) => { drawOnCell('hover', Cell) });
 }
 
 function drawOnCell(mode, Cell){
@@ -47,8 +46,15 @@ function drawOnCell(mode, Cell){
 
 createGrids();
 
-gridRows = 50;
-cellWidth = gridSize / gridRows;
-setTimeout(function() { 
+let slider = document.querySelector('#myRange');
+let sliderText = document.querySelector(".slider-container p");
+
+slider.oninput = function() {
+    sliderText.textContent = `Grid resolution: ${this.value}x${this.value}`;
+
+    gridRows = this.value;
+    cellWidth = gridSize / gridRows;
     createGrids();
-}, 1000);
+    setTimeout(function() { 
+    }, 1000);
+}
