@@ -1,7 +1,7 @@
 let gridSize = 640; 
 let gridRows = 8;
 let cellWidth = gridSize / gridRows;
-let mode;
+let hoverModeChecked = false;
 
 function createGrids(){
     let grid = document.querySelector('.container');
@@ -25,29 +25,38 @@ function createGrids(){
             
         }
     }
-
-    Cells = document.querySelectorAll(".cell");
-    Cells.forEach((Cell) => { drawOnCell('hover', Cell) });
+    updateAllCells()
 }
 
 function drawOnCell(mode, Cell){
-    if (mode == 'hover'){
+    if (hoverModeChecked == true){
         Cell.addEventListener('mouseover', () => {
             Cell.style.backgroundColor = 'rgb(175, 175, 175)';
         });
     }
 
-    else if (mode == 'click'){
+    else if (hoverModeChecked == false){
         Cell.addEventListener('mousedown', () => {
             Cell.style.backgroundColor = 'rgb(175, 175, 175)';
         });
     }
 }
 
+function updateAllCells(){
+    Cells = document.querySelectorAll(".cell");
+    Cells.forEach((Cell) => { drawOnCell(hoverModeChecked, Cell) });
+}
+
 createGrids();
 
 let slider = document.querySelector('#myRange');
 let sliderText = document.querySelector(".slider-container p");
+let hoverSwitch = document.querySelector("#hoverCheckbox");
+
+hoverSwitch.addEventListener("change", function(){
+    hoverModeChecked = hoverModeChecked ? false : true;
+    updateAllCells();
+    })
 
 slider.oninput = function() {
     sliderText.textContent = `Grid resolution: ${this.value}x${this.value}`;

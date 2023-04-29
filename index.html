@@ -9,9 +9,18 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div class="slider-container">
-        <input type="range" min="1" max="60" value="8" class="slider" id="myRange">
-        <p>Grid resolution: 8x8</p>
+    <div class="top-container">
+        <div class="slider-container">
+            <input type="range" min="1" max="60" value="8" class="slider" id="myRange">
+            <p>Grid resolution: 8x8</p>
+        </div>
+        <div class="switch-container">
+            <p>Hover mode</p>
+            <label class="switch">
+                <input type="checkbox" id="hoverCheckbox">
+                <span class="switch-slider"></span>
+            </label>
+        </div>
     </div>
     <div class="container"></div>
 </body>
